@@ -1,0 +1,58 @@
+Goal of course is to learn how to design computer algorithms. 
+
+major techniques include : 
+
+• divide-and-conquer
+• backtracking
+• dynamic programming 
+* Greedy 
+
+Graph algorithms = case study 
+
+NP -completeness later on in course. 
+In computational complexity theory, a problem is NP-complete when:
+
+A nondeterministic Turing machine can solve it in polynomial-time.
+A deterministic Turing machine can solve it in large time complexity classes (e.g., EXPTIME, as is the case with brute force search algorithms) and can verify its solutions in polynomial time.
+It can be used to simulate any other problem with similar solvability.
+
+
+
+
+An algorithm is said to be of polynomial time if its running time is upper bounded by a polynomial expression in the size of the input for the algorithm, i.e., T(n) = O(nk) for some positive constant k.[1
+
+A polynomial expression is an expression built with scalars (elements of K), indeterminates, and the operators of addition, multiplication, and exponentiation to nonnegative integer powers.
+
+
+------------------
+Basic Theory: 
+An algorithm is a step-by-step procedure for solving a problem • Typically developed before doing any programming
+• In fact, it is independent of any programming language
+Efficient algorithms can have a dramatic effect on our problem-solving capabilities
+
+
+
+
+Algorithm design processus/concerns: 
+
+Problem specification - Is the problem clearly and precisely stated?
+
+Simplicity & Clarity- is the algorithm clear? is there a simpler and clearer algorithm? 
+
+Correctness- is the algorithm correct? 
+amount of work done- run time in terms of input size (independant of hardware and programming language)? 
+
+(sometimes) amoutn of space used. amount of extra memory space does the algorithm use (beyond the size of the input). we will say that an algo. is in place if the amout of extra space is constant with respect to input size. 
+
+(sometimes) optimality- can we prove that the algorithm does the best of any algorithm. 
+------------------
+Mathematical induction.... 
+
+Runing time analysis. 
+
+---------
+
+
+
+
+

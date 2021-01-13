@@ -1,0 +1,150 @@
+Viewings and Readings
+
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 1 lecture slides.
+View the week 1 lecture recordings and the discussion session recording.
+Complete the week 1 quiz.
+Read chapter 0 and sections 1.1-3 and 1.10 of the textbook.
+Problems
+
+Please write precise and concise answers. Your algorithm descriptions should use either clear, concise, and precise plain English or clear, concise, and precise pseudo-code that uses a style similar to the pseudo-code in your textbook. Submit your solutions to problems 1-3 via D2L and to problems 4-5 via Kattis. Please submit your work as a Word or PDF file or as scans/photos of legible handwritten notes.
+
+
+
+1.    Prove using the definition of Big-O. Make sure to choose correct values for c and n0.
+
+
+A.   3n^3 + n^2 + 7n + 12 = O(n^3)
+
+F(n) = O(g(n))  All constants are positive integers(c and n0). 
+* source Big O cheatcheet.com 
+
+
+
+B.  2^(n+2) = O(2^n )
+
+
+let f(n)=2^(n+2) and g(n) = O(2^n);
+per big O... 2^(n+2)<=c*O(2^n)
+2^(logn+2)=o(log N) =n. 
+n= o(log N)
+
+
+
+
+
+
+C.  If f1(n) = O(g1(n)) and f2(n) = O(g2(n)) and g1(n) = O(g2(n)) then f1(n) + f2(n) = O(g2(n))
+
+analyze each element element.... 
+  ---f1(n) = O(g1(n)) 
+
+---f2(n) = O(g2(n)) 
+ ---g1(n) = O(g2(n)) 
+Think of transitive property. 
+  f1(n) + f2(n) = O(g2(n))
+add 4 & 5  works 
+
+  f(n)=0(g(n)) if f(n)<=c*g(n)
+....f1(n/+f2(n)  = 0(g^2(n))
+
+
+
+
+
+
+
+
+
+2.  A turnpike consists of N-1 stretches of road between N toll stations; each stretch has an associated cost of travel and the cost of travel between two toll stations is the sum of the costs of the stretches traveled. For example,
+
+   5      7      4      9     
+|-----|-------|----|---------|
+1     2       3    4         5
+
+represents a turnpike with N = 5 toll stations numbered 1 through 5 and four road stretches with associated costs 5, 7, 4, and 9. The cost of traveling from toll station 2 to toll station 5 is 20, for example.
+
+A. Design a O(N) time algorithm that computes the cost of going between any two stations i and j using only an array of the stretch costs.
+
+function calculate (i, j, n )  {
+	
+	const total = 0; 
+		for(let x = i; x< j ; x++)
+		{
+		total += cost[i];
+		}
+	return total; 
+}
+
+
+
+
+
+B. Design a O(1) time algorithm that computes the cost of going between any two stations i and j using a pre-computed two-dimensional array with O(N2 ) entries. What should this table contain?
+
+const total [N] {N]; 
+const N ; 
+
+function calculate (N) {
+	for ( let i = i; i<= N-1 ; i++)
+	total[i][i] =0; 
+	for i =1; i<=total.N; i++); 
+	for(int j = i+1) ; j<N; j++)
+	{
+		total[i][j] = total[i][j-1] + cost[j-1];
+	}
+}
+
+
+
+C. Design a O(1) time algorithm that computes the cost of going between any two stations i and j using a pre-computed one-dimensional array of size O(N). What should this array contain?
+
+const total [n];
+function calculate() {
+
+	let total[1]=0; 
+		for(let i=2; i<=N;i++)
+	{
+		total[i] = total[i-1]+cost[i-1];
+	}	
+}
+
+
+
+3.    Problem 9 parts (a) and (b) on page 49 of your textbook.
+Suppose you are given a stack of n pancakes of diﬀerent sizes. You want to sort the pancakes so that smaller pancakes are on top of larger pancakes. The only operation you can perform is a ﬂip—insert a spatula under the top k pancakes, for some integer k between 1 and n, and ﬂip them all over.
+
+
+
+a. 
+Describe an algorithm to sort an arbitrary stack of n pancakes using O(n) ﬂips. Exactly how many ﬂips does your algorithm perform in the worst case? 15 [Hint: This problem has nothing to do with the Tower of Hanoi.]
+
+n= pancakes. 
+worse case = 2n-3   O(N)
+2n= 1 flip brings pancake to top, 2nd flip to bottom. -3 because stack becomes sorted once 2nd to last N reaches 0 space of the array. 
+
+
+
+
+b. For every positive integer n, describe a stack of n pancakes that requires Ω(n) ﬂips to sort.
+
+omega= (n)
+
+worse case (2n-3) >=cn, c=1
+omega = 2n-3 >=n => n>=3
+
+
+
+
+
+
+4.    Week 1 problem 4thought on Kattis. Submit your solution via Kattis after your have gotten a account on Kattis and registered for the course.
+
+
+
+
+
+
+
+
+5.  [Optional]   Week 1 problem Perket on Kattis. Submit your solution via Kattis.

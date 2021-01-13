@@ -1,0 +1,84 @@
+0. Course Intro
+
+Lubomir or Prof. Perkovich. 
+techniques for designing algorithms (dive and conquer, backtraacking, dynamic programming, greedy, brute-force)
+later on graph algorithms. 
+theorey of NP-completeness. 
+
+Create, compile, debug code in Java or Python (or JS )
+Abstract data types.  stack, que, priority ques, linked list, hash tables, search trees (including balanced search tree). 
+**Review Discrete structures in JS. 
+-basic graph theorty. 
+-predicate logic. 
+-exposure to proofs. 
+
+-analyze running times of algoriths. design mathematical model of algorithms for a technique and create a algo. 
+-graph data types for designing algorithms. 
+-role of empty completeness in describing completeness. 
+
+-Kattis for homework. 
+-quiz on D2l. 
+-
+quizes-10%
+homework-30%
+midterm-20%
+final exam- 40% 
+
+emams (midterm & final): lockdown browser. 
+- d2l quiz multiple choice and matching. 
+-some written questions. 
+-This material is fundamental to being a software engineer. 
+- This course helps us solve problems and be a proper software engineer. 
+
+-weekly homework posted on wednesday and due on next wednesday. 
+-
+
+
+
+1.  Algorithn design concerns; polynomial evaluation (video 2)
+
+An algorithm is a step -b y -ste p p rocedure for solvin g a p roblem
+
+• T yp icall y develo p ed before doin g an y p ro g rammin g
+
+• In fact, it is inde p endent of an y p ro g rammin g lan g ua g e
+
+Eﬃcient al g orithms can have a dramatic eﬀect on our p roblem-solvin g ca p abilities
+---> before you start coding. 
+--> helps determines the successfulness of the program (in addition to taking into account space, caching, compiler, etc.)
+
+our main concerns: when designing an algorithm
+1. problem specification- is the problem clearly and precisely stated? 
+2. simplicity and clarity- is the algorithm clear? is there a simpler and clarer algorithm? clearest essential solution.
+3. Algorithm correctness- is the algorithm correct? (formal or semi formal arguement for correctness)> 
+4. amount of work done= aka running time. is it efficient? runnign time of input size (independent of hardware and programming language)
+5. sometimes size? amount of space used. how much extra memory space does the algorityh use. "in place". Memory is relatively inexpensive now, running time is most important. 
+6. sometimes optimality. can we prove that the algorithm does the best of any algorithm? 
+
+Problem of evaluation a polynomial. 
+-a polynomial is the sum of a nomial. its a function that is a sum and each is a constant * a power of x. Evaluating means the sum which is a value z. 
+
+
+input= p(x) = a0+a1+a2x^2+...+anx^n    a value of z.  we presume the coefficient are store in an array a[0...n];
+
+if the input is p(x) = x^2 +2x +1 and z =3, then p(3) = 16. 
+
+an algorithm that takes the coefficients (an array of coefficients). 
+
+the loop calculates z. 
+
+
+
+
+2.  asymptotic notation
+
+
+
+3. worse-case analysis; insertion sort
+
+
+
+4.  dive-and conquer; exponentation
+
+
+

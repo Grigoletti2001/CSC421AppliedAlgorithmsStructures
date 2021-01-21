@@ -148,3 +148,4 @@ omega = 2n-3 >=n => n>=3
 
 
 5.  [Optional]   Week 1 problem Perket on Kattis. Submit your solution via Kattis.
+Didn't do. 

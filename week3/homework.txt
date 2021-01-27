@@ -44,46 +44,130 @@ A[1] < A[2] < ... <A[n].
                                 else y = middle -1
 
 
-2.    Problem 1 page 93 in your textbook. Give two solutions for each part (a) and (b): you write the first solution by appropriately modifying the pseudo-code on page 78 of the textbook (that algorithm does not use pruning) and you should write the second solution my appropriately modifying the pseudo-code on Week 3 slide 64 (that algorithm does use pruning).
+2.    Problem 1 page 93 in your textbook. 
+Give two solutions for each part (a) and (b): 
+you write the first solution by appropriately 
+modifying the pseudo-code on page 78 of the textbook 
+(that algorithm does not use pruning) and you should write the 
+second solution my appropriately modifying the pseudo-code on
+ Week 3 slide 64 (that algorithm does use pruning).
 
 
-Describe recursive algorithms for the following generalizations of the SUBSETSUM problem: 
+SubsetSum(S[1..n], T, X[1..n], r)
+if r = n+1 then
+output X
+return
+X[r] ← 0
+if Feasible(S, T, X, r) then
+SubsetSum(S, T, X, r+1)
+X[r] ← 1
+if Feasible(S, T, X, r) then
+SubsetSum(S, T, X, r+1)
+
+
+
+
+Describe recursive algorithms for the following generalizations 
+of the SUBSETSUM problem: 
 
 a. Given an array X[1..n] of positive integers and an integer T, compute
 the number of subsets of X whose elements sum to T. 
+isSubsetSum(set,n,sum)
+=isSubsetSum(set, n-1, sum)|| isSubsetSum(set,n-1, sum-set[n-1])
+Base case:
+isSubsetSum(set,n,sum)=false, if sum>0&n=0;
+isSubsetSum(set,n,sum)=true,if sum=0;
 
-b. Given two arrays X[1..n] and W[1..n] of positive integers and an integer T, where each W[i] denote the weight of the corresponding element 
-X[i], compute the maximum weight subset of X whose elements sum to T. If no subset of X sums to T, your algorithm should return - ∞. 
+
+
+b. Given two arrays X[1..n] and W[1..n] of positive integer
+s and an integer T, where each W[i] denote the weight of the 
+corresponding element 
+X[i], compute the maximum weight subset of X whose elements sum to T.
+ If no subset of X sums to T, your algorithm should return - ∞. 
+
+2D array = array.size()+1*(target+1) type boolean. 
+2D array type is a boolean. 
+   if current element has a greater value than curent sum value, we will use the answer from previous case. 
+   If current sum is greater than iTH element or OR any previous states experienced (j-a[i]). it solves problem. 
+
+time complexity/auxilary space...:
+O(sum*n) sum of target sum size of 2d arry is sum *n.  and size of array. 
 
 
 
 
 
-3.    Solve problem 3. from Homework 2, not using divide-and-conquer but using backtracking. You will need the following recursive insight: the maximum sum subarray of X[1..j] is
+3.    Solve problem 3. from Homework 2, not using 
+divide-and-conquer but using backtracking. 
+You will need the following recursive insight: the maximum 
+sum subarray of X[1..j] is
 either the maximum sum subarray of X[1..j-1] 
-or the maximum sum subarray of X[1..j] that ends in position j (which can be found in O(n) time).
-Your algorithm will not run in O(n log n) time, of course. Can you figure out its running time?
+or the maximum sum subarray of X[1..j] that ends in position 
+j (which can be found in O(n) time).
+Your algorithm will not run in O(n log n) time, of course. 
+Can you figure out its running time?
 
+0(1) 
 
-
-Given an array X of N real numbers we would like to find the maximum sum of entries found in any subarray of X. For instance, if N = 10 and X[1..10]  is: 
+Given an array X of N real numbers we would like to find the
+ maximum 
+sum of entries found in any subarray of X. For instance, 
+if N = 10 and X[1..10]  is: 
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
  [31, -41, 59, 26,-53,58,97	,-93,-23,84] 
 
- then the answer is 187, which is the sum of entries 59, 26, -53, 58, 97 in the "maximum subarray" X[3..7]. The problem is easy when all the entries are positive -- the maximum subarray is the entire input vector. The rub comes when some of the numbers are negative: should we include a negative number in hopes that the positive numbers to its sides will compensate for its negative contribution? Of course, if the entries are all negative then the maximum subarray is the empty subarray and zero should be returned. Design an O(n log n) divide and conquer algorithm for this problem and describe it using (the textbook style) pseudo-code. Explain why your algorithm works and justify your running time analysis.
+ then the answer is 187, which is the sum of entries 59,
+  26, -53, 58, 97 in the "maximum subarray" X[3..7]. 
+  The problem is easy when all the entries are positive -- 
+  the maximum subarray is the entire input vector.
+   The rub comes when some of the numbers are negative: 
+   should we include a negative number in hopes that the 
+   positive numbers to its sides will compensate for its
+    negative contribution? Of course, if the entries are 
+    all negative then the maximum subarray is the empty 
+    subarray and zero should be returned. 
+    Design an O(n log n) divide and conquer algorithm 
+    for this problem and describe it using 
+    (the textbook style) pseudo-code. 
+    Explain why your algorithm works and 
+    justify your running time analysis.
 
-(Hint: Divide the problem in half and solve the left and right subproblem recursively. This will find the maximum subarrays contained in the left and right subproblems, but it will overlook subarrays that start in the left subproblem and end in the right subproblem. How do you find the maximum such subarray? You must do this in O(n) time in order to achive the O(n log n) running time for the whole algorithm.)
+(Hint: Divide the problem in half and solve the 
+left and right subproblem recursively. 
+This will find the maximum subarrays 
+contained in the left and right subproblems, 
+but it will overlook subarrays that start in the 
+left subproblem and end in the right subproblem. 
+How do you find the maximum such subarray? 
+You must do this in O(n) time in order to 
+achive the O(n log n) running time for the 
+whole algorithm.)
 
-Var arrayOne = [31, -41, 59, 26, -53, 58, 97, -93, -23, 84 ]; 
-Var arrayTwo = [31, -41, 59, 26, -53];
-Var arrayThree = [58, 97, -93, -23, 84]; 
-
-Function 1: Traverse over each element of a given array. 
-Or 
-Function 2: Using the two variables created we can return (use recursive calls on vars 2/3)the max var2, var 3, and the mid point, (divide and conquer).
-
+Solution: 
+recursive solution (rs) = 
+Key value is essential. 
+rs[i] - max sum of array  that ends at index if
+init state : rs[0] = array[0];
+algorithm: rs[i]=max(rs[i-1]+array[i],array[i]);
 
 
+Time: (n)-n arraylength 
+space (0(1))
+
+js psuedocode: 
+function algorithm (array) {
+    var len = array.length; 
+        let max = list[0];
+        le tmin =0; 
+        let sum = 0; 
+        for (
+
+            iterate over variable len(length)
+            conditions :2 condtionts 
+            min = sum
+        )
+}
 
 
 4.    Week 3 problem geppetto on Kattis.

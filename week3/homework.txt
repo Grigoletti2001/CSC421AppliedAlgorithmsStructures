@@ -46,12 +46,57 @@ Your algorithm will not run in O(n log n) time, of course. Can you figure out it
 
 
 
+Given an array X of N real numbers we would like to find the maximum sum of entries found in any subarray of X. For instance, if N = 10 and X[1..10]  is: 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+ [31, -41, 59, 26,-53,58,97	,-93,-23,84] 
+
+ then the answer is 187, which is the sum of entries 59, 26, -53, 58, 97 in the "maximum subarray" X[3..7]. The problem is easy when all the entries are positive -- the maximum subarray is the entire input vector. The rub comes when some of the numbers are negative: should we include a negative number in hopes that the positive numbers to its sides will compensate for its negative contribution? Of course, if the entries are all negative then the maximum subarray is the empty subarray and zero should be returned. Design an O(n log n) divide and conquer algorithm for this problem and describe it using (the textbook style) pseudo-code. Explain why your algorithm works and justify your running time analysis.
+
+(Hint: Divide the problem in half and solve the left and right subproblem recursively. This will find the maximum subarrays contained in the left and right subproblems, but it will overlook subarrays that start in the left subproblem and end in the right subproblem. How do you find the maximum such subarray? You must do this in O(n) time in order to achive the O(n log n) running time for the whole algorithm.)
+
+Var arrayOne = [31, -41, 59, 26, -53, 58, 97, -93, -23, 84 ]; 
+Var arrayTwo = [31, -41, 59, 26, -53];
+Var arrayThree = [58, 97, -93, -23, 84]; 
+
+Function 1: Traverse over each element of a given array. 
+Or 
+Function 2: Using the two variables created we can return (use recursive calls on vars 2/3)the max var2, var 3, and the mid point, (divide and conquer).
+
+
+
 
 
 4.    Week 3 problem geppetto on Kattis.
 
     (a)  Describe the backtracking algorithm for the geppetto problem. Make sure you describe precisely how partial solutions are represented and how they are pruned.
+
     (b)  Implement your solution using your preferred language and submit your implementation via Kattis.
+
+
+Problem A
+Geppetto
+
+Everyone’s favorite character and puppet-maker Geppetto has opened a new pizza place, the best in town. Geppetto is trying to make the best pizza possible, but at the same time he doesn’t want to have a small selection of pizzas.
+
+He makes his pizzas out of 𝑁 ingredients marked with numbers from 1 to 𝑁. All that would be simple if he could mix any ingredient with every ingredient on the pizza, but unfortunately, that is not the case. Sometimes some ingredients cannot mix and that creates additional complications for our pizza master.
+
+There are 𝑀 pairs of ingredients that cannot be on the same pizza at the same time. Given these restrictions, Geppetto wants to know how many different pizzas he can make. Help him answer this question. Two pizzas are considered different if there is an ingredient of index 𝑖 that is on one pizza, but not on the other.
+
+
+Input
+
+The first line of input contains two integers 𝑁 and 𝑀 (1≤𝑁≤20, 0≤𝑀≤400). Each of the following 𝑀 lines contains two different numbers 𝑎 and 𝑏, they represent the prohibition of mixing ingredients marked with 𝑎 and 𝑏 on the pizza. (1≤𝑎,𝑏≤𝑁). All pairs of ingredients are not necessarily distinct, some pair could occur multiple times.
+
+Output
+The first and only line of output must contain the number of different pizzas given the restrictions in the task.
+
+
+
+
+
+
+
+
 
 
 

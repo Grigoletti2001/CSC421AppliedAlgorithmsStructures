@@ -27,12 +27,24 @@ A[1] < A[2] < ... <A[n].
 2.    Problem 1 page 93 in your textbook. Give two solutions for each part (a) and (b): you write the first solution by appropriately modifying the pseudo-code on page 78 of the textbook (that algorithm does not use pruning) and you should write the second solution my appropriately modifying the pseudo-code on Week 3 slide 64 (that algorithm does use pruning).
 
 
+Describe recursive algorithms for the following generalizations of the SUBSETSUM problem: 
+
+a. Given an array X[1..n] of positive integers and an integer T, compute
+the number of subsets of X whose elements sum to T. 
+
+b. Given two arrays X[1..n] and W[1..n] of positive integers and an integer T, where each W[i] denote the weight of the corresponding element 
+X[i], compute the maximum weight subset of X whose elements sum to T. If no subset of X sums to T, your algorithm should return - ∞. 
+
+
+
 
 
 3.    Solve problem 3. from Homework 2, not using divide-and-conquer but using backtracking. You will need the following recursive insight: the maximum sum subarray of X[1..j] is
 either the maximum sum subarray of X[1..j-1] 
 or the maximum sum subarray of X[1..j] that ends in position j (which can be found in O(n) time).
 Your algorithm will not run in O(n log n) time, of course. Can you figure out its running time?
+
+
 
 
 

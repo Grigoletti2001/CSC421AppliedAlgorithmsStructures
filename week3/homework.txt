@@ -1,0 +1,48 @@
+Viewings and Readings
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 3 lecture slides.
+View the week 3 lecture recordings and the discussion session recording.
+Complete the week 3 quiz.
+Read sections 2.1-4 of the textbook.
+
+
+Problems
+
+Please write precise and concise answers. Your algorithm descriptions should use either clear, concise, and precise plain English or clear, concise, and precise pseudo-code that uses a style similar to the pseudo-code in your textbook. Submit your solutions to problems 1-4(a) and 5(a) via D2L as a Word or PDF file or as scans/photos of legible handwritten notes. Submit your solutions to problems 4(b) and 5(b) via Kattis.
+
+
+
+
+1.    Problem 31 page 61 in your textbook.
+
+Suppose we are given an array A[1..n] of n distrinct integers, which could be positive, negative, or zero, sorted in increasing order so that 
+A[1] < A[2] < ... <A[n].
+
+	a. Describe a fast algorithm that either computes an index i such that A[i] = i or correctly reports that no such index exists.
+
+	b.  we know know in advance that A[1] >0. Describe an even faster algorithm that either computes an index i such that A[i]=i or 
+	correctly reports that no such index exists. [Hint: This is *really* easy.]
+
+
+2.    Problem 1 page 93 in your textbook. Give two solutions for each part (a) and (b): you write the first solution by appropriately modifying the pseudo-code on page 78 of the textbook (that algorithm does not use pruning) and you should write the second solution my appropriately modifying the pseudo-code on Week 3 slide 64 (that algorithm does use pruning).
+
+
+
+
+3.    Solve problem 3. from Homework 2, not using divide-and-conquer but using backtracking. You will need the following recursive insight: the maximum sum subarray of X[1..j] is
+either the maximum sum subarray of X[1..j-1] 
+or the maximum sum subarray of X[1..j] that ends in position j (which can be found in O(n) time).
+Your algorithm will not run in O(n log n) time, of course. Can you figure out its running time?
+
+
+
+4.    Week 3 problem geppetto on Kattis.
+
+    (a)  Describe the backtracking algorithm for the geppetto problem. Make sure you describe precisely how partial solutions are represented and how they are pruned.
+    (b)  Implement your solution using your preferred language and submit your implementation via Kattis.
+
+
+
+5. [Optional]    Week 3 problem dancerecital on Kattis.
+    (a)  Describe the backtracking algorithm for the problem. Make sure you describe precisely how partial solutions are represented and how they are pruned.
+    (b)  Implement your solution using your preferred language and submit your implementation via Kattis.

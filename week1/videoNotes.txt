@@ -66,11 +66,25 @@ if the input is p(x) = x^2 +2x +1 and z =3, then p(3) = 16.
 an algorithm that takes the coefficients (an array of coefficients). 
 
 the loop calculates z. 
+ loop = sum (E)
+
+ Induction--
+
+ anything to the power of ^0 = 1. 
+
+ <-- a way of saying = 
+
 
 
 
 
 2.  asymptotic notation
+
+
+https://www.bigocheatsheet.com 
+
+
+
 
 
 

@@ -15,13 +15,33 @@ Please write precise and concise answers. Your algorithm descriptions should use
 
 1.    Problem 31 page 61 in your textbook.
 
-Suppose we are given an array A[1..n] of n distrinct integers, which could be positive, negative, or zero, sorted in increasing order so that 
+Suppose we are given an array A[1..n] of n distrinct integers,
+ which could be positive, negative, or zero, sorted in 
+ increasing order so that 
 A[1] < A[2] < ... <A[n].
 
-	a. Describe a fast algorithm that either computes an index i such that A[i] = i or correctly reports that no such index exists.
+	a. Describe a fast algorithm that either computes an
+     index i such that A[i] = i or correctly reports that
+      no such index exists.
+      One could use a Binary Search --> O(LogN). 
+      Look at size of array. if even number (divisible by 2), one can 
+      return the middle nunble. else you can middle > or < a point to the left or right point in 
+      the middle and make a recursive call +-1. 
 
-	b.  we know know in advance that A[1] >0. Describe an even faster algorithm that either computes an index i such that A[i]=i or 
-	correctly reports that no such index exists. [Hint: This is *really* easy.]
+	b.  we know know in advance that A[1] >0. 
+    Describe an even faster algorithm that either
+     computes an index i such that A[i]=i or 
+	correctly reports that no such index exists. 
+    [Hint: This is *really* easy.]
+    Use a Binary search and use O(log(n)) complexity. 
+        Psuedocode/logic :  [array input]
+                            var x = 0
+                            var y = n-1
+                            var middle = (x+y) / 2
+ 
+                            loop while y > X
+                                if [array]middle == then console.log(middle)
+                                else y = middle -1
 
 
 2.    Problem 1 page 93 in your textbook. Give two solutions for each part (a) and (b): you write the first solution by appropriately modifying the pseudo-code on page 78 of the textbook (that algorithm does not use pruning) and you should write the second solution my appropriately modifying the pseudo-code on Week 3 slide 64 (that algorithm does use pruning).

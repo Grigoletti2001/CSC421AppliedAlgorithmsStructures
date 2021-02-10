@@ -1,0 +1,222 @@
+Homework 4
+
+Due by 7:30pm on February 3, 2021
+
+
+Viewings and Readings
+
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 4 lecture slides.
+View the week 4 lecture recordings and the discussion session recording.
+Complete the week 4 quiz.
+Read sections 2.5-8 of the textbook.
+Problems
+
+
+--------------------------------------------------------------------
+
+
+1.    Problem 14(a) page 51 in your textbook.
+Suppose you are given two sets of n points, one set {p 1, p 2,..., p n} on the
+ line y = 0 and the other set {q 1,q 2,...,q n} on the line y = 1. Create a set
+ of n line segments by connect each point p ito the corresponding point q i.
+ Describe and analyze a divide-and-conquer algorithm to determine how
+ many pairs of these line segments intersect, in O(nlog n) time. [Hint:
+ See the previous problem.]--> 
+
+
+
+Recursively count number of inversion and sort by 
+q[1..[n/2]] or q[n/2] +1..n]
+
+
+
+
+
+--------------------------------------------------------------------
+
+
+2.    Problems 24(a)(b)(c) page 57 in your textbook.
+
+Consider the following classical recursive algorithm for computing the
+ factorial n! of a non-negative integer n:
+
+Factorial(n): 
+	if n=0 
+		return 1
+	else 
+		returnn*Factorial(n-1)
+	
+	A. How many multiplications does this algorithm perform?
+	 Multiplication = 	1. recursive factorial def n! = n* (n-1)!
+						2. Multiply 1-n via a loop
+						3. use a function 
+	
+	
+	
+	B. How many bits are required to write n! in binary? 
+	Express your answer
+	in the form Θ(f (n)), for some familiar function f (n). 
+	[Hint: (n/2) n/2< n! < n n.]
+
+		n! = gammaFunction(n+1)  
+
+	C. Your answer to (b) should convince you that the number of multiplications
+	is not a good estimate of the actual running time of Factorial. We
+	can multiply any k-digit number and any l-digit number in O(k · l) time
+	using either the lattice algorithm or duplation and mediation. What is
+	the running time of Factorial if we use this multiplication algorithm as
+	a subroutine?
+	
+	t(n)={x if n<=2   else 
+	y+T(n-1) 
+	
+	if n=1 or 2, factorial of n is n. else we calculate the factorial of n-a & multiply the result by n. 
+	
+T(n) = Theta(n)
+
+
+
+--------------------------------------------------------------------
+
+3.    Problem 2(a) page 94 in your textbook. Do this by appropriately modifying the pseudo-code on page 84 of the textbook.
+
+
+Describe recursive algorithms for the following variants of the text segmentation problem. Assume that you have a subroutine IsWord that takes an array of characters as input and returns True if and only if that string is a “word”. 
+
+Given an array A[1.. n] of characters, compute the number of partitions
+ of A into words. For example, given the string ARTISTOIL, your algorithm
+ should return 2, for the partitions ARTIST·OIL and ART·IS·TOIL.
+
+
+Psuedo code : 
+ 
+//vars
+1. create a python dictionary or in JS/java or 
+create an array of strings. 
+--> you can create 1 with the prefixes included in it OR two (1 for words and 1 for prefixes and comparing). 
+2. 
+
+//
+
+var string1 = "artistoil"; 
+var compare (or python dictionary) [] ={ "a", "art","is", "artist","oil", etc.  }
+//function to compare var compare to string1
+
+function isPresent (string word) { 
+for loop 
+	iterate over var compare 
+	if python -string1==0
+		return 1; 
+		return0;
+}
+//now will make a count var. 
+
+var count (string str, int n, int count) 
+
+total possible word formation {
+	for loop (iterate over counter. 
+	
+	if word present (prefix) 
+		if (i==n)
+		{
+		count = count +1
+		return; 
+		}
+		IsPresent(str.substr(i,n-i).n-1,count); 
+		}
+
+}
+
+--------------------------------------------------------------------
+
+
+4. [One of 4 or 6 is optional]   
+6 done. 
+
+
+Problem 3(a) page 94 in your textbook. Do this by writing precise pseudo-code for a recursive function ACLength that takes n as input and returns the length of the minimum length addition chain for n.done. 
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+
+5.    Problem 4(a) page 94 in your textbook. You may answer this question with a recursive formula or an algorithm described using pseudo-code.
+
+
+ Hint: compare A[1] and B[1], consider the two cases A[1]==B[1] and A[1] != B[1], and write/compute the LCS(A[1..n], B[1..n]) in terms of LCS(A[2..n],B[2..n]),  LCS(A[1..n],B[2..n]), and LCS(A[2..n], B[1..n]).
+
+
+Let A[1.. m] and B[1.. n] be two arbitrary arrays. A common subsequence
+ of A and B is both a subsequence of A and a subsequence of B. 
+
+Give a simple recursive deﬁnition for the function lcs(A, B), which gives the
+ length of the longest common subsequence of A and B.
+
+
+
+public class LCS 
+{ 
+
+	int lcs( char[] X, char[] Y, int m, int n ) 
+	{ 
+		if (m == 0 || n == 0) 
+			return 0; 
+		if (X[m-1] == Y[n-1]) 
+			return 1 + lcs(X, Y, m-1, n-1); 
+		else
+			return max(lcs(X, Y, m, n-1), lcs(X, Y, m-1, n)); 
+	} 
+	
+	/* Utility function to get max of 2 integers */
+	int max(int a, int b) 
+	{ 
+		return (a > b)? a : b; 
+	} 
+
+
+	public static void main(String[] args) 
+	{ 
+		LongestCommonSubsequence lcs = new LongestCommonSubsequence(); 
+		String s1 = "AGGTAB"; 
+		String s2 = "GXTXAYB"; 
+		
+		char[] X=s1.toCharArray(); 
+		char[] Y=s2.toCharArray(); 
+		int m = X.length; 
+		int n = Y.length; 
+		
+		System.out.println("Length of LCS is" + " " + 
+																	lcs.lcs( X, Y, m, n ) ); 
+	} 
+	
+} 
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+
+6. [One of 4 or 6 is optional]    Week 4 problem boggle on Kattis. Submit your solution via Kattis.
+
+
+https://depaul.kattis.com/problems/boggle
+
+
+
+
+6 done. 
+
+
+
+
+--------------------------------------------------------------------
+

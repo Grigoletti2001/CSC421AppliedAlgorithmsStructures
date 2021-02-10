@@ -1,0 +1,202 @@
+8 questions total. 
+
+2. written. 
+
+6. multiple choice. 2 from quize directly. 
+
+
+the 2 written question questions are about: 
+
+1. Divide & Conquer : solve a problem
+A divide-and-conquer algorithm recursively breaks down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.
+
+The divide-and-conquer technique is the basis of efficient algorithms for many problems, such as sorting (e.g., quicksort, merge sort), multiplying large numbers (e.g., the Karatsuba algorithm), finding the closest pair of points, syntactic analysis (e.g., top-down parsers), and computing the discrete Fourier transform (FFT).[1]
+
+ Similarly, decrease and conquer only requires reducing the problem to a single smaller problem, such as the classic Tower of Hanoi puzzle, which reduces moving a tower of height n to moving a tower of height n − 1.
+
+Binary Search is a searching algorithm. ...
+Quicksort is a sorting algorithm. ...
+Merge Sort is also a sorting algorithm. ...
+Closest Pair of Points The problem is to find the closest pair of points in a set of points in x-y plane.
+
+
+A typical Divide and Conquer algorithm solves a problem using the following three steps.
+
+Divide: Break the given problem into subproblems of same type. This step involves breaking the problem into smaller sub-problems. Sub-problems should represent a part of the original problem. This step generally takes a recursive approach to divide the problem until no sub-problem is further divisible. At this stage, sub-problems become atomic in nature but still represent some part of the actual problem.
+Conquer: Recursively solve these sub-problems. This step receives a lot of smaller sub-problems to be solved. Generally, at this level, the problems are considered 'solved' on their own.
+Combine: Appropriately combine the answers. When the smaller sub-problems are solved, this stage recursively combines them until they formulate a solution of the original problem. This algorithmic approach works recursively and conquer & merge steps works so close that they appear as one.
+This method usually allows us to reduce the time complexity by a large extent.
+
+One last time
+
+Divide / Break. Break the problem into smaller sub-problems.
+Conquer / Solve. Solves all the sub-problems.
+Merge / Combine. Merges all the sub-solutions into one solution.
+
+Towers of Hanoi 🗼
+
+The Towers of Hanoi is a mathematical problem which compromises 3 pegs and 3 discs. This problem is mostly used to teach recursion, but it has some real-world uses. The number of pegs & discs can change.
+
+Each disc is a different size. We want to move all discs to peg C so that the largest is on the bottom, second largest on top of the largest, third largest (smallest) on top of all of them. There are some rules to this game:
+
+We can only move 1 disc at a time.
+A disc cannot be placed on top of other discs that are smaller than it.
+We want to use the smallest number of moves possible. If we have 1 disc, we only need to move it once. 2 discs, we need to move it 3 times.
+
+The number of moves is a power of 2 minus 1. Say we have 4 discs, we calculate the minimum number of moves as 
+2
+4
+=
+16
+−
+1
+=
+15
+2 
+4
+ =16−1=15.
+
+To solve the above example we want to store the smallest disc in a buffer peg (1 move). See below for a gif on solving Tower of Hanoi with 3 pegs and 3 discs.
+Notice how we need to have a buffer to store the discs.
+
+We can generalise this problem. If we have n discs: move n-1 from A to B recursively, move largest from A to C, move n-1 from B to C recursively.
+
+If there is an even number of pieces the first move is always into the middle. If it is odd the first move is always to the other end.
+
+Let’s  code the algorithm for ToH, in pseudocode.
+
+function MoveTower(disk, source, dest, spare):
+    if disk == 0, then:
+        move disk from source to dest
+
+
+
+edit
+play_arrow
+
+brightness_4
+// Java code to demonstrate Divide and
+// Conquer Algorithm
+class GFG{
+ 
+// Function to find the maximum no.
+// in a given array.
+static int DAC_Max(int a[], int index, int l)
+{
+    int max;
+     
+    if (index >= l - 2) 
+    {
+        if (a[index] > a[index + 1])
+            return a[index];
+        else
+            return a[index + 1];
+    }
+ 
+    // Logic to find the Maximum element
+    // in the given array.
+    max = DAC_Max(a, index + 1, l);
+ 
+    if (a[index] > max)
+        return a[index];
+    else
+        return max;
+}
+ 
+// Function to find the minimum no.
+// in a given array.
+static int DAC_Min(int a[], int index, int l)
+{
+    int min;
+    if (index >= l - 2)
+    {
+        if (a[index] < a[index + 1])
+            return a[index];
+        else
+            return a[index + 1];
+    }
+ 
+    // Logic to find the Minimum element
+    // in the given array.
+    min = DAC_Min(a, index + 1, l);
+ 
+    if (a[index] < min)
+        return a[index];
+    else
+        return min;
+}
+ 
+// Driver Code
+public static void main(String[] args)
+{
+     
+    // Defining the variables
+    int min, max;
+ 
+    // Initializing the array
+    int a[] = { 70, 250, 50, 80, 140, 12, 14 };
+ 
+    // Recursion - DAC_Max function called
+    max = DAC_Max(a, 0, 7);
+ 
+    // Recursion - DAC_Max function called
+    min = DAC_Min(a, 0, 7);
+     
+    System.out.printf("The minimum number in " +
+                      "a given array is : %d\n", min);
+    System.out.printf("The maximum number in " +
+                      "a given array is : %d", max);
+}
+}
+ 
+// This code is contributed by Princi Singh
+
+
+        
+
+
+
+
+2. Backtracking --> Write a recursive solution 
+
+Backtracking can be defined as a general algorithmic technique that considers searching every possible combination in order to solve a computational problem.
+
+
+Decision Problem – In this, we search for a feasible solution.
+Optimization Problem – In this, we search for the best solution.
+Enumeration Problem – In this, we find all feasible solutions.
+
+
+
+
+Pseudo Code for Backtracking :
+
+Recursive backtracking solution.
+void findSolutions(n, other params) :
+    if (found a solution) :
+        solutionsFound = solutionsFound + 1;
+        displaySolution();
+        if (solutionsFound >= solutionTarget) : 
+            System.exit(0);
+        return
+
+    for (val = first to last) :
+        if (isValid(val, n)) :
+            applyValue(val, n);
+            findSolutions(n+1, other params);
+            removeValue(val, n);
+
+
+Finding whether a solution exists or not
+boolean findSolutions(n, other params) :
+    if (found a solution) :
+        displaySolution();
+        return true;
+
+    for (val = first to last) :
+        if (isValid(val, n)) :
+            applyValue(val, n);
+            if (findSolutions(n+1, other params))
+                return true;
+            removeValue(val, n);
+        return false;

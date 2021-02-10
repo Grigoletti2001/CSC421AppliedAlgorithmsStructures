@@ -1,0 +1,310 @@
+quiz 1: 
+54:00 in video. 
+1. What is the tight bound on the asymptotic running time, in terms of the number of states n and the number of representatives R, of the ApportionCongress algorithm described on page 9 of your textbook if the priority queue is implemented efficiently with a heap data structure?
+
+**********0(R log(n))*********
+None of the above
+0(r)
+0(r)
+0(Rn)
+0(n)
+
+2. Which of the following values for c and n_0 can be used to prove that 3n+20 = O(n)? Pick ALL correct answers.
+***c=23, n0 =1***
+c=2, n0=100
+c=3, n0=21
+****c=4, n0=20****
+
+3. Consider this recursive implementation of Horner's method for polynomial evaluation:
+def recHorner(a, i, n, z):
+    if i > n:
+        return 0
+    return a[i] + z * recHorner(a, i+1, n, z)
+Which one of the following is the correct way to call this function on a polynomial of degree n whose coefficients are stored in array a and a value z:
+
+*******recHorner (a,0,n,z)*******
+recHorner(a, 0,z,n)
+recHorner(a,n,0,z)
+recHorner(a,n,z,0)
+none of the above.
+
+4. Suppose you repeatedly divide (using integer division) an integer n by 2. For example, if n is 120, then this process will generate values 60, 30, 15, 7, etc. How many divisions, in terms of n, will it take to get down to 1?
+
+0(n log(n))
+0(n^2)
+*************0(log(n))************
+0(n)
+
+5. Suppose you append a constant number of values to a sorted integer array of size n. What would be the running time of insertionSort on such limited type of input?
+
+0(n log(n))
+none of the above
+****0(n)***
+0(n^2)
+0(log(n))
+
+
+
+Quiz 2: 
+
+1. Which of the following insights is NOT used in the development of the divide-and-conquer algorithm dicussed in the week 2 lecture?
+
+***Every set of n points has the property that when sorted by y-coordinate, points that are close to each other in the ordering are also close to each other on the plane.***
+
+
+Before the recursive divide-and-conquer procedure is even started, we must construct two different arrays containing the input points: one array holds the points in order by x-coordinate and the other in order by y-coordinate.
+
+
+The closest pair of points are not necessarily on the same (left or right) side of line l (slides 67-72)
+
+
+When considering pairs of points lying on opposite sides of line l, we only need to consider those points whose distance form line l is less than delta.
+
+
+Each one of the 16 equal sized dashed squares shown on slides 74-75 may contain one point at most.
+
+
+2. Not including the memory space necessary to hold the input array A, how much extra memory space is used by MergeSort and by QuickSort? Choose all that apply.
+
+Question 2 options:
+
+***********************
+
+*Θ(1) extra memory space is used by MergeSort*
+************************
+
+Θ(n) extra memory space is used by QuickSort
+
+
+***Θ(n) extra memory space is used by MergeSort***
+
+
+3. Match each recurrence relation on the right to a solution on the left.
+
+
+
+1.	
+T(n) = 4T(n/2) + O(n)			
+o(n^2)
+
+2.	
+T(n) = 3T(n/2) + O(n)			
+o(n logn)
+
+3.	
+T(n) = 2T(n/2) + O(n)			
+0(n^LOG2^3)
+
+4.	
+T(n) = T(n/2) + O(n)			
+0(n)
+
+
+4. Which of the following algorithms covered in lecture 2 have a worst case running time of O(log n)? Choose all that apply.
+
+Question 4 options:
+
+QuickSort
+
+
+FastMultiply
+
+
+MergeSort
+
+
+****PingalaPower*****
+
+
+****Binary Search****
+
+
+5. The initial call to multiply x=1,234,567 and y=9,876,543 using function FastMultiply on page 41 of your textbook will make three recursive calls to FastMultiply. What three pairs of values will the three recursive calls be multiplying?
+
+Question 5 options:
+
+12 and 98, 34567 and 76543, -34555 and -76445
+
+1234 and 9876, 567 and 543, 667 and 9333
+
+1234 and 6543, 567 and 987, 667 and 5556
+
+123 and 543, 4567 and 9876, 4444 and 9333
+
+****123 and 987, 4567 and 6543, -4444 and -5556****
+
+
+
+
+
+
+Quiz 3: 
+
+
+1. Execute by hand the PlaceQueens algorithm with n=5, i.e. on a 5x5 chessboard until you reach a valid solution. What is the column of the queen in the last row?
+
+5
+2
+3
+***4***
+1
+
+2. Figure 2.5 on page 75 of your textbook shows levels 0, 1, and 2 of the fake-sugar packer game tree. No two states in these levels are the same. What is the shallowest level at which some states will appear several times?
+****3****
+6
+4
+7
+5
+
+
+3. The Subset Sum algorithm on lecture slide 64 will output all valid solutions when executed on problem instance S = [4, 7, 6, 3, 1] and T = 10. Which valid solution is found first? Second? Third?
+
+
+first ------>   [6,3,1]
+
+second---->		[7,3]
+
+Third -------> 	[4,6]
+
+			
+
+
+4. Suppose you run the Subset Sum algorithm on lecture slide 64 on problem instance S = [4, 7, 6, 3, 1] and T = 10. Which of the following partial solutions will be pruned because of the first pruning rule, i.e. the one described on lecture slide 67?
+
+
+	
+X = [1,0,0,1]
+
+*****X = [0,1,1]******
+
+X = [0,0,1,1,0]
+
+X = [1,0,0]
+
+X = [1,0,0,0,1,1]
+
+
+
+5. Which of the following are correct statements about the prof's solution to the Kattis Class Picture problem?
+
+Question 5 options:
+
+***Regardless of what pairs of people don't like each other, the program will never output a lineup in which the names are sorted in reverse lexicographic order (i.e., in reverse dictionary order).***
+
+
+The prof's initial solution was accepted by Kattis.
+
+
+The re-sorting of the set remaining in every recursive call of function solve is critical to ensure that the output is accepted by Kattis.
+
+
+***Excluding the recursive call, the running time of the body of the for loop in function solve is O(1). You may assume that the Python set class methods and operators used in the body of the for loop run in O(1) time.***
+
+
+***If input m is 0 then the lineup that is output is lexicographically sorted (i.e., sorted in dictionary order).***
+
+
+The initial solution that was rejected by Kattis used the Python set data type to store student names.
+
+
+
+Quiz 4 : 
+
+Question 1 (2 points) 
+Which of the following are correct statements about the text segmentation algorithm on slide 42 and/or the two partial solutions on slide 29 of Lecture 4?
+
+
+The partial solution starting with BLUE will be generated and extended by the algorithm before the partial solution starting with BLUEST is ever generated.
+
+
+***It is possible that during the execution of the Splittable algorithm the recursive call Splittable(i) for some index i between 1 and n is executed repeatedly.***
+
+
+The running time of Splittable on an input sequence of length n is quadratic in n.
+
+
+***It is posible that during the execution of the Splittable algorithm a recursive call Splittable(i) is made for some i greater than n+1.***
+
+
+
+
+Question 2 
+Which of the following are longest increasing subsequences of sequence
+
+2 6 1 4 2 4 2 9 5 3 5 7 8 3
+
+? If more than one is a longest increasing subsequence, you must choose all of them.
+
+
+
+Question 2 options:
+
+***1 2 3 5 7 8***
+
+
+***1 2 4 5 7 8***
+
+
+6 1 4 9 5 7
+
+
+1 4 5 3 7 8
+
+
+1 2 3 4 7 8
+
+
+Question 3 (2 points) 
+Suppose that a recursive call to LISbigger (on slide 61 of Lecture 4) is made with prev = 6 and A[1..N] = [2 6 4 2 9 5 3 5 7 8 3] and that you then observe the execution of the algorithm, i.e. execution of successive recursive calls, until the value of prev changes. What value does prev change to?
+Question 3 options:
+
+2
+
+6
+
+5
+
+***9***
+
+4
+
+Question 4 (2 points) 
+What is the total cost of accessing keys 3, 5, and 7 if they are 1) stored in a binary search tree with root 3 with child 5 and grandchild 7 and 2) key 3 is accessed six times, 5 is accessed four times, and 7 is accessed twice. (You will need to use the Cost function given on slides 80-81 of Lecture 4.)
+
+Question 4 options:
+
+20
+
+23
+
+19
+
+21
+
+22
+
+
+Question 5 (2 points) 
+Which of the following is the binary search tree that minimizes the total cost of accessing keys 3, 5, 7, and 9 with access frequencies 8, 2, 6, and 2, respectively? (Note that the below descriptionsdo implicitly specify the position(s) in the tree of the key(s) not explicitly mentioned.)
+Question 5 options:
+
+Root 5 with right child 9
+
+Root 3 with right child 5 whose right child is 7
+
+***Root 5 with right child 7***-
+
+Root 3 with right child 9 whose left child is 7
+
+Root 3 with right child 7
+
+
+
+
+
+
+
+
+
+
+

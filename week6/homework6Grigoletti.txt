@@ -1,0 +1,140 @@
+Joseph Grigoletti Homework 
+
+
+
+
+Viewings and Readings
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 6 lecture slides.
+View the week 6 lecture recordings and the discussion session recording.
+Complete the week 6 quiz.
+Read sections 3.7-9 and 4.1-2 of the textbook. (Section 3.10 is optional.)
+
+
+
+
+
+
+
+Problems
+Please write precise and concise answers. Except where explicitly indicated, your algorithm descriptions should use either clear, concise, and precise plain English or clear, concise, and precise pseudo-code that uses a style similar to the pseudo-code in your textbook. Submit your solutions to problems 1-4(a) via D2L as a Word or PDF file or as scans/photos of legible handwritten notes. Submit your solutions to problems 4(b) and 5 via Kattis.
+
+
+1.    Problem 5(b) page 125.
+
+
+This exercise asks you to develop eﬃcient algorithms to ﬁnd optimal subse-
+ quences of various kinds. A subsequence is anything obtained from a sequence
+ by extracting a subset of elements, but keeping them in the same order; the
+ elements of the subsequence need not be contiguous in the original sequence.
+ For example, the strings C, DAMN, YAIOAI, and DYNAMICPROGRAMMING are all
+ subsequences of the string DYNAMICPROGRAMMING.
+ [Hint: Exactly one of these problems can be solved in O(n) time using a
+ greedy algorithm.]
+
+
+ Let A[1.. m] and B[1.. n] be two arbitrary arrays. A common super-
+ sequence of A and B is another sequence that contains both A and B as
+ subsequences. Describe an eﬃcient algorithm to compute the length of
+ the **shortest common supersequence *** of A and B.
+
+
+
+
+
+
+2.    Problem 9(a) page 128.
+
+A palindrome is any string that is exactly the same as its reversal, like I, or
+ DEED, or RACECAR, or AMANAPLANACATACANALPANAMA.
+
+
+ Describe and analyze an algorithm to ﬁnd the length of the longest
+ subsequence of a given string that is also a palindrome.
+ For example, the longest palindrome subsequence of the string
+ MAHDYNAMICPROGRAMZLETMESHOWYOUTHEM is MHYMRORMYHM; thus, given
+ that string as input, your algorithm should return 11.
+
+
+
+
+
+
+
+3.    Problem 1 page 176.
+
+Caveat lector: Some of these exercises cannot be solved using greedy algorithms! Whenever you describe and analyze a greedy algorithm, you must also include a proof that your algorithm is correct; this proof will typically take the form of an exchange argument. These proofs are especially important in classes (like mine) that do not normally require proofs of correctness.
+
+
+The GreedySchedule algorithm we described for the class scheduling
+ problem is not the only greedy strategy we could have tried. For each of
+ the following alternative greedy strategies, either prove that the resulting
+ algorithm always constructs an optimal schedule, or describe a small input
+
+ example for which the algorithm does not produce an optimal schedule. Assume that all algorithms break ties arbitrarily (that is, in a manner that is completely out of your control). [Hint: Three of these algorithms are actually correct.]
+
+
+(a) Choose the course x that ends last, discard classes that conﬂict with x,
+ and recurse.
+(b) Choose the course x that starts ﬁrst, discard all classes that conﬂict
+ with x, and recurse.
+(c) Choose the course x that starts last, discard all classes that conﬂict
+ with x, and recurse.
+(d) Choose the course x with shortest duration, discard all classes that
+ conﬂict with x, and recurse.
+(e) Choose a course x that conﬂicts with the fewest other courses, discard all
+ classes that conﬂict with x, and recurse.
+(f) If no classes conﬂict, choose them all. Otherwise, discard the course
+ with longest duration and recurse.
+(g) If no classes conﬂict, choose them all. Otherwise, discard a course that
+ conﬂicts with the most other courses and recurse.
+(h) Let x be the class with the earliest start time, and let y be the class with
+ the second earliest start time.
+• If x and y are disjoint, choose x and recurse on everything but x.
+• If x completely contains y, discard x and recurse.
+• Otherwise, discard y and recurse.
+(i) If any course x completely contains another course, discard x and
+ recurse. Otherwise, choose the course y that ends last, discard all classes
+ that conﬂict with y, and recurse.
+
+
+
+4.    Week 6 problem walrusweights on Kattis.
+    (a)  Develop a dynamic programming algorithm for the problem. Do this by going through the steps 1(a), 1(b), 2(a), ...  listed at the beginning of the lecture 6 slides. You should, in particular, describe the recursive solution/algorithm that is the result of 1(b).
+
+var values-use an array.; 
+var input(lines)... defines as int. ;
+
+input = parsing the integers and reads the data; (a method)
+	while loop  
+
+var result = new array (); 
+
+result[0] = boolean value; 
+
+
+
+function : iterate (aka loop)  over current value  & previous value. 
+
+call the method : iterate (); 
+
+
+Results function (results): a basic for loop. 
+
+	for  
+		else if . 
+
+		END 
+
+
+
+    (b)  Implement your dynamic programming solution using your preferred language and submit your implementation via Kattis.
+
+
+
+
+
+
+5. [Optional]     Week 6 problem spiderman on Kattis. Submit your solution via Kattis.
+
+

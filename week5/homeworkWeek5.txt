@@ -1,0 +1,137 @@
+Joseph Grigoletti. 
+Week 5, Feb 1-7: Dynamic programming
+Due Feb. 10, 2020
+-------------
+
+Viewings and Readings
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 5 lecture slides.
+View the week 5 lecture recordings and the discussion session recording.
+Complete the week 5 quiz.
+Read sections 3.1-6 of the textbook.
+
+
+Problems:   
+
+Please write precise and concise answers. Except where explicitly indicated, your algorithm descriptions should use either clear, concise, and precise plain English or clear, concise, and precise pseudo-code that uses a style similar to the pseudo-code in your textbook. Submit your solutions to problems 1-3(a) via D2L as a Word or PDF file or as scans/photos of legible handwritten notes. Submit your solutions to problems 3(b) and 4 via Kattis.
+
+
+
+1.    Problem 2(a) page 124 in your textbook. Do this by going through the steps 1(a), 1(b), 2(a), ... covered during in lecture 5, that one needs to do in order to develop a dynamic programming algorithm. Steps 1(a) and 1(b) are already done for you since they are solutions to problem 3 in homework 4. Therefore focus on steps 2(a), 2(b), 2(c), 2(d), 2(e) and 2(f).
+
+ Describe eﬃcient algorithms for the following variants of the text segmentation problem. Assume that you have a subroutine IsWord that takes an array of characters as input and returns True if and only if that string
+ is a “word”. Analyze your algorithms by bounding the number of calls to
+ IsWord.
+
+A. Given an array A[1.. n] of characters, compute the number of partitions of A into words. For example, given the string ARTISTOIL, your algorithm should return 2, for the partitions ARTIST·OIL and ART·IS·TOIL.
+
+
+
+String dictionary []= { "a", art}, "is"}, etc. ; 
+
+//function whether word is in dictionary 
+
+int word present (string word) {
+	
+	for int i=0; i< dictionary.size; i++)
+		if (dictionary[i].compose(word=0))
+		return 1; 
+	else 
+	return 0;
+}
+
+//function will show whetherstring is word or not . variable count. 
+
+void word (string str, int n, int count) {
+		//n is length of string 
+		//count total possible word formation
+
+		for  ( int i=i; i<=n; i++  )    {  
+
+			string prefix = str.substring (0,i); 
+			//extract substring from 0 top i in each string
+
+			if (wordpresent (prefix)) {
+				if (i=n)
+			}
+			count =count ;  
+			//total string is found in dictionary 
+			return ; 
+			}
+			Is word (str. substr(i, n-i). n-i, count); 
+		}
+
+}
+
+
+
+
+--------------------------------------------------------------------
+2.    There are n trading posts along a river numbered 1, 2, 3, ..., n. At any of the posts you can rent a canoe to be returned at any other post downstream. (It is impossible to paddle against the river, since it is too fast...) For each possible departure point i and each possible arrival point j (> i), the cost of a rental from i to j is known: it is C[i,j] > 0. However, it can happen that the cost of renting from i to j is higher than the total costs of a series of shorter rentals from i to j. 
+
+In this case you can return the first canoe at some post k between i and j and continue your journey in a second (and, maybe, third, fourth ...) canoe. There is no extra charge for changing canoes in this way.
+
+***Give a O(n2) time dynamic programming algorithm to determine the minimum cost of a trip from trading post 1 to trading post n.***
+
+
+To develop your algorithm,** go through the steps 1(a), 1(b), 2(a), ... covered during in lecture 5,*** that one needs to do in order to develop a *dynamic programming algorithm*. In particular, you will need to describe 1(a) the problem that needs to be solved recursively and then 1(b) give a recursive solution to that problem. To find the problem that needs to be solved recursively, start with the initial problem of computing the ***minimum cost ***of a trip from trading post 1 to trading post n and find a way to describe a solution for it in terms of solutions to sub-problems of that problem. (Hint: Consider what the last canoe rental, the one getting you to trading post n, could be.) Then proceed with steps 2(a), 2(b). etc.
+
+
+
+ALgorithm for computing minCost [n,1] : 
+//starting pooint.  at fixed. = n. 
+
+for j <--(n-1) to 1 //end point. 
+min cost [n,j] = c[n,j]
+	for k<--- (n-1)to (j+1) //middle point
+
+	x= min cost [n,k] +c[k,i];
+
+		if (x(minCost[i,j])
+
+			minCost[i,j]=x
+
+
+
+
+				o(n^2)
+
+
+
+
+
+
+--------------------------------------------------------------------
+3.    Week 5 problem commercials on Kattis.
+    (a)  *Describe the recursive solution for the commercials problem. 
+
+
+    (Hint: note that the problem reduces to the maximum sum subarray problem we did in Homework 2 and 3. Then, if X[1..n] is the input subarray, note that the maximum sum subarray of X[1..j] is:
+either the maximum sum subarray in X[1..j-1]
+or it is a maximum sum subarray that ends in position j; the maximum sum subarray that ends in position j is either empty or includes the maximum sum subarray that ends in position j-1. 
+Use these two insights to express the sum S[1..j] of the maximum sum subarray of X[1..j].
+
+
+we used the maximum sum subarray problem to solve this problem. 
+
+3 rules : 
+
+1. If the array contains all non-negative numbers, then the problem is trivial; a maximum subarray is the entire array.
+2. If the array contains all non-positive numbers, then a solution is any subarray of size 1 containing the maximal value of the array (or the empty subarray, if it is permitted).
+3. Several different sub-arrays may have the same maximum sum.
+
+we used dynamic programming to solve this per the instructions. 
+
+
+
+     (b)  Implement a dynamic programming algorithm that makes use of your recursive solution in your preferred language and submit your implementation via Kattis.
+
+
+
+
+
+
+
+ --------------------------------------------------------------------    
+
+4. [Optional]     Week 5 problem uxuhulvoting on Kattis. Submit your solution via Kattis.

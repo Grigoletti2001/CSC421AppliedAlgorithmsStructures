@@ -24,7 +24,7 @@ Please write precise and concise answers. Except where explicitly indicated, you
 
 
 This exercise asks you to develop eﬃcient algorithms to ﬁnd optimal subse-
- quences of various kinds. A subsequence is anything obtained from a sequence
+ quences of various kinds. A *subsequence* is anything obtained from a sequence
  by extracting a subset of elements, but keeping them in the same order; the
  elements of the subsequence need not be contiguous in the original sequence.
  For example, the strings C, DAMN, YAIOAI, and DYNAMICPROGRAMMING are all
@@ -38,8 +38,62 @@ This exercise asks you to develop eﬃcient algorithms to ﬁnd optimal subse-
  subsequences. Describe an eﬃcient algorithm to compute the length of
  the **shortest common supersequence *** of A and B.
 
+ steps : 
+ 1.1. Find Longest common subsequence (lcs) of 2 given strings. 
+ 1.2. Insert non-lcs chars (in original order in strings) to the lcs and return the result. 
+ 	1.2.1 example : 
+ 	string1: = [DAMN];
+ 	string2: - [DYNAMICPROGRAMMING]; 
+
+ 	Rough OOP code (not perfect)
+
+class SCS {
+	static int SCSfunction(string 1, string 2) {
+
+	int a = 1.length(); 
+	int b = 2.length(); 
+
+	//find longest common sub.
+	int large = lcs(1, 2, a, b); 
+
+	return (a+b-1); 
 
 
+
+	}
+	static int lcscunction (string 1, string 2, int a, int b) {
+		int [] [] L = new int [a +1] [b+1];
+		int i, j; 
+
+
+		for (i = 0; i <= m; i++) {
+            for (j = 0; j <= n; j++) {
+                if (i == 0 || j == 0)
+                    L[i][j] = 0;
+
+                    elif (1.char at (i-1) == Y.charArt (j-1))
+                    	L[i] [j] = L [i-1][j -1] +1; 
+
+                    	else 
+                    		L[i][j] = math.max (L[i-1][j], 
+                    				L[i][j-1]);
+
+
+	}}
+	return L[a, b]
+
+}
+public static void main(String args[])
+    {
+
+
+
+    String 1 = "DAMN"; 
+    strig 2 = "DYNAMICPROGRAMMING"; 
+    system.out.println ("length of the shortest " + "supersequence is " + shortestsupersequence(a, b));
+
+
+    }}
 
 
 
@@ -56,6 +110,29 @@ A palindrome is any string that is exactly the same as its reversal, like I, or
  that string as input, your algorithm should return 11.
 
 
+**Steps to solve :** 
+
+1.  all single chars are the palindrome sequence of size 1
+
+
+2.Lis(i,j)=1 for all indexes i in the string
+
+
+3.If 1 and last character of string is not same then, (se[i] !=se[j]) Lis(i,j)=max{Lis(i+1,j), Lis(i,j-1)}
+
+
+4.if there exist 2 chars and both of them are same then ,if j==i+1 ,so Lis(i,j)=2
+
+5.if there exist more than 2 chars and first and last value is same then
+
+6. Lis(i,j)=Lis(i+1,j-1)+2
+
+7. a function is called (which stores the variables), and calculates the results. 
+
+8.  the  length of the string is printed (11)
+
+
+O(n^2) 
 
 
 
@@ -68,18 +145,33 @@ Caveat lector: Some of these exercises cannot be solved using greedy algorithms!
 
 The GreedySchedule algorithm we described for the class scheduling
  problem is not the only greedy strategy we could have tried. For each of
- the following alternative greedy strategies, either prove that the resulting
+ the following alternative greedy strategies, ***either prove that the resulting
  algorithm always constructs an optimal schedule, or describe a small input
-
+****
  example for which the algorithm does not produce an optimal schedule. Assume that all algorithms break ties arbitrarily (that is, in a manner that is completely out of your control). [Hint: Three of these algorithms are actually correct.]
+
+ C
+ H 
+ I 
+
 
 
 (a) Choose the course x that ends last, discard classes that conﬂict with x,
  and recurse.
 (b) Choose the course x that starts ﬁrst, discard all classes that conﬂict
  with x, and recurse.
+
+
 (c) Choose the course x that starts last, discard all classes that conﬂict
  with x, and recurse.
+
+We can prove this using induction & general greedy proof strategy as described in the book and several online sources
+
+https://web.stanford.edu/class/archive/cs/cs161/cs161.1138/handouts/120%20Guide%20to%20Greedy%20Algorithms.pdf  
+
+
+
+
 (d) Choose the course x with shortest duration, discard all classes that
  conﬂict with x, and recurse.
 (e) Choose a course x that conﬂicts with the fewest other courses, discard all
@@ -88,14 +180,25 @@ The GreedySchedule algorithm we described for the class scheduling
  with longest duration and recurse.
 (g) If no classes conﬂict, choose them all. Otherwise, discard a course that
  conﬂicts with the most other courses and recurse.
+
+
 (h) Let x be the class with the earliest start time, and let y be the class with
  the second earliest start time.
 • If x and y are disjoint, choose x and recurse on everything but x.
 • If x completely contains y, discard x and recurse.
 • Otherwise, discard y and recurse.
+
+We can prove this using the principle of exclusion. 
+If 𝑥 and 𝑦 are disjoint, then every optimal schedule contains 𝑥.
+
+
+
+
 (i) If any course x completely contains another course, discard x and
  recurse. Otherwise, choose the course y that ends last, discard all classes
  that conﬂict with y, and recurse.
+
+
 
 
 

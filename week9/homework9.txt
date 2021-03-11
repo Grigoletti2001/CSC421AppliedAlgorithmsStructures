@@ -1,0 +1,313 @@
+Homework 9
+Due by 7:30pm on March 10, 2021
+Viewings and Readings
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 9 lecture slides.
+View the week 9 lecture recordings and the discussion session recording.
+Complete the week 9 quiz.
+Read sections 6.5-6, chapter 7, and sections 8.1-6 of the textbook (except the more challenging "heart" parts; section 8.7 is optional).
+Problems
+Please write precise and concise answers. Except where explicitly indicated, your algorithm descriptions should use either clear, concise, and precise plain English or clear, concise, and precise pseudo-code that uses a style similar to the pseudo-code in your textbook. Submit your solutions to problems 1(a), 2(a), and 3(a) via D2L as a Word or PDF file or as scans/photos of legible handwritten notes. Submit your solutions to problems 1(b), 2(b) and 3(b) via Kattis.
+
+------------------------------------
+
+1.    Week 9 problem builddeps on Kattis.
+(a)  Explain how DFS can be used to solve this problem. Make sure you describe what needs to be done to print the files in the right order.
+
+//libraries 
+
+//main method public class build deps 
+
+//variables: up, vst, list declares
+  //method public 
+  //define variablese
+
+  for loop
+  //iterate over tree
+  		if 
+
+  		for  //iterate over the the line (int numO)
+  		if 
+  			else 
+  			//set strings as a new hashset 
+
+  		call term method
+  		for (iterate over list) println
+
+
+
+
+//terminal method dfs 
+
+if vst = true, return...
+for string dfs. 
+if vst = false, 
+return vst. puts. s true
+
+end program. 
+
+DFS starts with node (one choose a random node ) and explores the tree before back tracking ( and checking for any missed nodes)before making decisions with a loop. Thus this guarentees every aspect of the tree is is printed at the minimum with another loop. It can then be further optimized. 
+
+
+
+
+(b) Use your insight from (a) to implement a solution using your preferred language and submit your implementation via Kattis.
+
+
+
+Done. 
+
+
+
+
+
+(infor bellow copied from internet)---->
+
+
+<-----------------
+
+
+Build Dependencies
+A Makefile is a file that specifies dependencies between different source code files. When one source code file changes, this file needs to be recompiled, and when one or more dependencies of another file are recompiled, that file needs to be recompiled as well. Given the Makefile and a changed file, output the set of files that need to be recompiled, in an order that satisfies the dependencies (i.e., when a file 𝑋 and its dependency 𝑌 both need to be recompiled, 𝑌 should come before 𝑋 in the list).
+
+Input
+The input consists of:
+
+one line with one integer 𝑛 (1≤𝑛≤100000), the number of Makefile rules;
+
+𝑛 lines, each with a Makefile rule. Such a rule starts with “𝑓:” where 𝑓 is a filename, and is then followed by a list of the filenames of the dependencies of 𝑓. Each file has at most 5 dependencies.
+
+one line with one string 𝑐, the filename of the changed file.
+
+Filenames are strings consisting of between 1 and 10 lowercase letters. Exactly 𝑛 different filenames appear in the input file, each appearing exactly once as 𝑓 in a Makefile rule. The rules are such that no two files depend (directly or indirectly) on each other.
+
+Output
+Output the set of files that need to be recompiled, in an order such that all dependencies are satisfied. If there are multiple valid answers you may output any of them.
+
+
+
+
+------------------------------------
+
+
+2.    Week 9 problem reversingroads on Kattis.
+
+
+
+Reversing Roads
+You work for the city of One-Direction-Ville. The city mandates that every road in its limits be one direction only. You are evaluating proposals for a new subdivision and its road network. One problem you’ve observed in some early proposals is that it is impossible to get to certain locations from others along the proposed roads. In order to speed up evaluation of subsequent proposals, you want to write a program to determine if it is possible to get to any location from any other location; you call this a valid proposal. And if a proposal is not valid, then your program should find out if there is an easy way to fix it by reversing the direction of one of the roads.
+
+Input
+Input consists of several test cases, at most 5. Each test case begins with a line containing two integers, 1≤𝑚≤50 and 0≤𝑛≤𝑚(𝑚−1)/2. 𝑚 indicates the number of locations in the proposal, and 𝑛 indicates the number of roads connecting these locations. Following this are 𝑛 lines. Each line contains two space-separated integers 𝑎 and 𝑏, where 0≤𝑎,𝑏<𝑚 and 𝑎≠𝑏. This indicates that there is a road from location 𝑎 to location 𝑏. If there is a road from 𝑎 to 𝑏, then there will be no road from 𝑏 to 𝑎. Also, there will never be more than one road between two locations.
+
+The last test case is followed by end-of-file.
+
+Output
+For each case, display the case number followed by an indication of whether the proposal is valid or not. If the proposal is valid, output valid. If it is not valid, but by reversing the direction of one roads it can become valid, print the two locations which describe the existing road that should be reversed. If more than one road reversal can create a valid proposal, print the first one that appears in the input. If the proposal is not valid and impossible to become valid by reversing one road, print invalid. Follow the format of the sample output.
+
+Kosaraju's algorithm (also known as the Kosaraju–Sharir algorithm) is a linear time algorithm to find the strongly connected components of a directed graph. Aho, Hopcroft and Ullman credit it to S. Rao Kosaraju and Micha Sharir. Kosaraju suggested it in 1978 but did not publish it, while Sharir independently discovered it and published it in 1981. It makes use of the fact that the transpose graph (the same graph with the direction of every edge reversed) has exactly the same strongly connected components as the original graph.
+
+If strong components are to be represented by appointing a separate root vertex for each component, and assigning to each vertex the root vertex of its component, then Kosaraju's algorithm can be stated as follows.
+
+1. For each vertex u of the graph, mark u as unvisited. Let L be empty.
+2. For each vertex u of the graph do Visit(u), where Visit(u) is the recursive subroutine:
+If u is unvisited then:
+2.1Mark u as visited.
+2.2For each out-neighbour v of u, do Visit(v).
+2.3Prepend u to L.
+Otherwise do nothing.
+3. For each element u of L in order, do Assign(u,u) where Assign(u,root) is the recursive subroutine:
+If u has not been assigned to a component then:
+3.1Assign u as belonging to the component whose root is root.
+3.2For each in-neighbour v of u, do Assign(v,root).
+Otherwise do nothing.
+   (from wikipedia. ) 
+
+   The key point of the algorithm is that during the first (forward) traversal of the graph edges, vertices are prepended to the list L in post-order relative to the search tree being explored. This means it does not matter whether a vertex v was first Visited because it appeared in the enumeration of all vertices or because it was the out-neighbour of another vertex u that got Visited; either way v will be prepended to L before u is, so if there is a forward path from u to v then u will appear before v on the final list L (unless u and v both belong to the same strong component, in which case their relative order in L is arbitrary).
+
+
+
+
+(a)  Explain how **Kosaraju-Shamir's strongly connected components algorithm can be used to solve this problem.*** Make sure you also describe how to find the edge to reverse, if it is necessary and if it exists, that makes the case valid.
+
+//Access Methods With an Object
+
+
+//libraries
+//main method (class reversing roads) 
+
+
+//list variables: graph, visits, time, lowlink, compoinents, point, p; 
+
+// main method
+
+
+//scanner class
+//int c=0;
+while loop 
+traverses int m,n graph (new listm); point new string n; 
+
+for iterates over array list ; 
+for loop iterates over variables a/b. IF scc 
+
+else 
+int a,b; 
+boolean inv= true; 
+for loop 
+  add/remove with boolean condit. based on conditionals. 
+
+  if (inv) println c: ... 
+  else 
+  print case c. 
+
+  println 
+
+  break. 
+
+
+
+//terminal method : //static boolean scc
+
+
+
+//static void dfs (int u) 
+
+
+
+//if component root). 
+root node 
+
+
+
+
+
+
+
+(b) [One of 2(b) and 3(b) is optional] Use your insights from (a) to implement a solution using your preferred language and submit your implementation via Kattis.
+
+
+Done in java. 
+
+
+
+done 
+
+
+
+
+
+
+
+
+------------------------------------
+
+
+3.    Week 9 problem kitchen on Kattis.
+
+Kitchen Measurements
+You are making a recipe and need to measure a precise volume of liquid. There are an assortment of cups of varying volumes in your kitchen, however no cup has any markings on it other than to indicate its total volume, and none of them match the volume that you want. You start with the biggest cup full of liquid and, to make sure you know precisely how much volume you are working with at any point in time, you consider steps in which you pour from any nonempty cup into another cup, always pouring until either the cup you are pouring into becomes full, or the cup you are pouring from becomes empty (whichever occurs first). As a simple example, assume you start with a full cup having capacity 5, and you have another cup with capacity 2, but your goal is to have 3 units of the liquid in the largest cup. In this case, you can start pouring from the larger cup to the smaller, stopping when the smaller one reaches its capacity of 2. This will leave precisely 3 units in the larger cup. See Figure 1(a).
+
+As another example, consider a case in which you have 4 cups with capacities 9, 6, 3, and 2, and you start with the largest cup full, the rest empty, and a goal of ending with 8 units in the largest cup. For ease of discussion we will refer to the cup with capacity 9 as the “9-cup” and similarly for the other sizes. You notice that the 6-cup and 2-cup have combined capacity of 8, and so you could pour from the original 9-cup to fill those two cups, then dump the remaining 1 unit from the 9-cup into the 3-cup, and finally pour the full 6-cup and 2-cup back into the 9-cup. See Figure 1(b). In implementing this strategy, the total volume of liquid poured would be 6+2+1+6+2=17. You could achieve this goal in another way: pour 3 units from the 9-cup to the 3-cup (leaving 6 units in the 9-cup), then fill the 2-cup from the 3-cup (leaving 1 unit in the 2 cup), and finally pour the full 2-cup back into the 9-cup, resulting in exactly 8 units in that cup. With this strategy, the total volume poured is only 3+2+2=7. See Figure 1(c).
+
+As a final example, you start with cups of capacities 11, 10, 7, 4, and 2, with the 11-cup full, and a goal of ending up with 10 units in the 11-cup. Obviously, you could fill the 10-cup, dump the remaining 1 unit into another cup, and then pour from the full 10-cup back into the 11-cup, as illustrated in Figure 2(a). These three pours would mean transferring a total volume of 10+1+10=21. Figure 2(b) shows a sequence with more steps, but less liquid poured.
+
+
+Input
+The input consists of a single line of positive integers: 𝑛 𝑐1 𝑐2 … 𝑐𝑛 𝑉, where there are 𝑛 cups, with 2≤𝑛≤5, having capacities satisfying 64≥𝑐1>𝑐2>…>𝑐𝑛≥1. The value 𝑉<𝑐1 designates the desired volume. You must start with largest cup (that with capacity 𝑐1) full of liquid and the other cups empty, and the goal is to get exactly volume 𝑉 into the largest cup.
+
+Output
+Output the minimum amount of liquid that must be poured to achieve the goal, or output impossible if the goal cannot be achieved.eswa
+
+
+
+
+(a)  Explain how Dijkstra's algorithm can be used to solve this problem. Since no graph is described explicitly in the problem, describe the graph that Dijkstra's algorithm is applied to and how its nodes and edges are generated.
+
+
+Dijkstra's algo help's you find the shortest path. 
+//standard template 
+
+
+dij (graph g, ver s)
+
+int(g, s);
+priority queue minQ = [all ver]; 
+
+while (minq does not equal 0 ) do
+vertice u = extractMin(minq); 
+for each v <minq such that (u,v) <e)
+relax(u,v); 
+end for
+end while looop. 
+
+
+//libraries 
+
+//main method 
+
+//variables 
+
+while loop 
+
+while or for loop
+
+end 
+
+
+
+
+
+(b) [One of 2(b) and 3(b) is optional]  Use your insights from
+
+
+
+No need to do, but 3a is still obligatory. 
+
+
+
+
+ (b) to implement a solution using your preferred language and submit your implementation via Kattis.
+import java.util.*; 
+
+public class Djikstra {
+    private int totalCost;
+
+    public Djikstra(Environment environment) {
+        Node goal = null;
+        PriorityQueue<Node> open = new PriorityQueue<>(Comparator.comparingInt(Node::getCost));
+        Set<State> closed = new HashSet<>();
+        open.add(new Node(new State(environment.getInit())));
+
+
+        while (!open.isEmpty()) {
+            Node current = open.poll();
+            if (closed.contains(current.getState())) continue;
+            closed.add(current.getState());
+            if (current.getState().isGoal(environment)) {
+                goal = current;
+                break;
+            }
+
+
+            for (Map.Entry<State, Integer> entry : current.getState().getNeighbors(environment).entrySet()) {
+                if (!closed.contains(entry.getKey())) {
+                    open.add(new Node(entry.getKey(), current, current.getCost() + entry.getValue()));
+                }
+            }
+        }
+        totalCost = goal == null ? -1 : goal.getCost();
+    }
+
+//prints results
+    public int getTotalCost() {
+        return this.totalCost;
+    }
+}
+
+
+
+
+
+
+
+

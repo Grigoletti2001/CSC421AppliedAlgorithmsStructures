@@ -1,0 +1,244 @@
+Homework 8- Joseph Grigoletti 
+
+Basic graph algorithms 
+
+Viewings and Readings
+[Links to the slides, recordings, and quiz are on the course web site.]
+Review the week 8 lecture slides.
+View the week 8 lecture recordings and the discussion session recording.
+Complete the week 8 quiz.
+Read chapter 5 and sections 6.1-3 of the textbook (section 6.4 is optional).
+Problems
+Please write precise and concise answers. Except where explicitly indicated, your algorithm descriptions should use either clear, concise, and precise plain English or clear, concise, and precise pseudo-code that uses a style similar to the pseudo-code in your textbook. Submit your solutions to problems 1, 2(a), and 3(a) via D2L as a Word or PDF file or as scans/photos of legible handwritten notes. Submit your solutions to problems 2(b) and 3(b) via Kattis.
+
+
+
+Basic Graph Algorithms:  
+
+
+1.    Problem 10(a)-(c) page 210. This problem is meant to illuminate the workings of Depth-First Search.
+
+One of the earliest published descriptions of whatever-ﬁrst search as a generic class of algorithms was by Edsger Dijkstra, Leslie Lamport, Alain Martin, Carel Scholten, and Elisabeth Steﬀens in 1975, as part of the design of an automatic garbage collector. Instead of maintaining marked and unmarked vertices, their algorithm maintains a color for each vertex, which is either white, gray, or black. As usual, in the following algorithm, we imagine a ﬁxed underlying graph G.
+
+---------------------------------------------
+ThreeColorSearch(s):
+
+color all nodes white 
+color s gray 
+while at least one vertex is gray 
+push s onto the stack
+ThreeColorStep()
+
+------------------------------------------
+------------------------------------
+ThreeColorStep(): 
+pop v from stack
+v ← any gray vertex 
+if v has no white neighbors 
+	color v black 
+else 
+	w ← any white neighbor of v 
+	parent(w) ← v 
+	color w gray
+	push v onto the stack
+	push w onto the stack
+
+
+--------------------------------------
+a. Prove that ThreeColorSearch maintains the following invariant at all times: No black vertex is a neighbor of a white vertex. [Hint: This should be easy.]
+b. Prove that after ThreeColorSearch(s) terminates, all vertices reachable from s are black, all vertices not reachable from s are white, and that the parent edges v -->(v) parent(v) deﬁne a rooted spanning tree of the component containing s. 
+[Hint: Intuitively, black nodes are “marked” and gray nodes are “in the bag”. Unlike our formulation of WhateverFirstSearch, however, the three-color algorithm is not required to process all edges out of a node at the same time.]
+
+c. Prove that the following variant of ThreeColorSearch, which maintains the set of gray vertices in a standard stack, is equivalent to depth-ﬁrst search. [Hint: The order of the last two lines of ThreeColorStackStep matters!]
+
+program example proving this. 
+//given vertex in an example graph. 
+
+#include <bits>
+#include <iostream>
+#include <concepts> 
+#include <cstdlib> 
+#include <csignal> 
+
+using namespace std;
+int main(int argc, char *argv[]) {
+	
+
+
+}
+
+//class graph = directed graph. 
+class graph {
+	
+	int vertice; 
+	//# of vertices
+	//pointer to an array with adjacency lists. 
+
+	list<int> * adj; 
+
+	//recursive function used by method DFS
+
+	voidDFSUtil (int vertice, bool visites[]);
+
+public: 
+Graph(int vertice); //constructor
+//function to add an edge to graph. 
+
+//w = edge
+	void add(int verticle int edge)
+
+	void DFS(int verticle);
+
+}; //end main class. 
+
+graph::graph(int vertice){
+	
+	this->vertice = vertice; ;
+	adj= new list<int>[vertice]
+
+}
+void graph::addEdge(int vertice int edge) {
+	adj[v].push_back(edge); 
+	//adds edge to v list
+
+
+}
+
+void Graph:DFSUtil(int vertice, bool visited[]) {
+		visited[vertice]=true; 
+		cout<<vertice<<"";
+		//recursion for vertices adjacent.
+
+		list<int>::iterator i; 
+			for i= adj[vertice].begin(); i!=adj[vertice].end(); i++)
+				if(!visited[*!])
+				DFStil(*i, visited); 
+
+
+}
+void Graph::DFS(int vertice) 
+{ 
+        bool *visited = new bool[vertice]; 
+        for (int i = 0; i < vertice; i++) 
+                visited[i] = false; 
+
+        // Call the recursive helper function 
+        // to print DFS  
+        DFSUtil(v, visited); 
+} 
+
+
+//Driver code 
+
+
+int main() 
+{ 
+        // Create a graph given in the above diagram 
+        Graph g(4); 
+        g.addEdge(0, 1); 
+        g.addEdge(0, 2); 
+        g.addEdge(1, 2); 
+        g.addEdge(2, 0); 
+        g.addEdge(2, 3); 
+        g.addEdge(3, 3); 
+
+        cout << "Following is Depth First Traversal"
+                        " (starting from vertex 2) \n"; 
+        g.DFS(2); 
+
+        return 0; 
+} 
+
+
+
+------------------------------------
+
+ThreeColorStackSearch(s): 
+
+
+
+
+
+--------------------------------------
+
+ThreeColorStackStep(): 
+
+
+
+--------------------------------------
+
+
+2.    Week 8 problem runningmom on Kattis.
+
+Running MoM
+
+The bad thing about being an international Man of Mystery (MoM) is there’s usually someone who wants to kill you. Sometimes you have to stay on the run just to stay alive. You have to think ahead. You have to make sure you don’t end up trapped somewhere with no escape.
+
+Of course, not all MoMs are blessed with a great deal of intelligence. You are going to write a program to help them out. You are going to make sure our MoM knows what cities are safe to visit and which are not. It’s not enough to just be able to run (or fly) for one or two days, we have to guarantee that the MoM can keep running for as long as might be necessary. Given a list of regular, daily flights between pairs of cities, you are going to make sure our MoM never gets stuck in a city from which there is no escape. We’ll say there is an escape from some location if there is an infinitely long sequence of cities the MoM could fly to making one flight each day.
+
+Input
+Input starts with a number, 1≤𝑛≤5000, giving the number of daily flights there are between pairs of cities. Each of the next 𝑛 lines contain a pair of city names separated by a space. Each city name is a string of up to 30 characters using only characters a–z, A–Z, and underscore. A line containing the name 𝑜 followed by 𝑑 indicates that there is a one-way flight from city 𝑜 to city 𝑑 every day. There are no flights that originate from and are destined for the same city.
+
+The description of daily flights is followed by a list of up to 1000 city names that have previously been named, one per line. The list ends at end of file.
+
+
+   
+    (a)  Explain how a DFS traversal of the graph modeling the problem and computing the _.pre and _.post values at every vertex can be used to solve this problem.
+Depth First Search (DFS) algorithm traverses a graph in a depthward motion and uses a stack to remember to get the next vertex to start a search, when a dead end occurs in any iteration. The idea is simple: 
+
+Cities are in a list and there a conditions (variables) that will determine whether or not a city is safe. We can use a DFS Traversal and use a loop to say if paramaters xyz are met it is safe to stay, else it is time to leave, and they will move to the next city within the list(array).
+
+
+
+
+
+    (b)  Use your insight from (a) to implement a solution using your preferred language and submit your implementation via Kattis.
+
+
+
+
+
+
+3.    Week 8 problem torn2pieces on Kattis.
+    (a)  Explain how a DFS traversal of the graph modeling the problem and computing the DFS traversal tree rooted at the starting tree can be used to solve this problem.
+
+By entering the subway data as a binary tree, we can create all the sub data (stops, neighborhoods, etc. )as a variables (nodes) and we can traverse the tree using a dfs algorithm. 
+
+NODES (first column)
+a---b
+b---ad
+c--d
+----d
+e----Dfg
+f----E
+g----G
+neighborhoods. 
+
+
+
+
+You have arrived in The Big City but your journey is not yet complete. You must still navigate the subway and get to your final destination. The information booth in the subway station is unattended and fresh out of maps of the subway system. On the floor you notice fragments of a map. Can you piece together enough of the map to figure out how to get to your final destination?
+
+Each fragment of the map happens to perfectly contain a single subway station while also identifying all of the other stations that it connects to. Each connection between stations is bi-directional such that it can be travelled going either direction. Using all of the available fragments, your task is to determine the sequence of stations you must pass through in order to reach your final destination or state that there is no route if you don’t have enough information to complete your journey.
+
+Input
+The first line of input has an integer, 2≤𝑁≤32, that identifies the number of pieces of the map that were found.
+
+The following 𝑁 lines each describe a station depicted on one of those pieces. Each of these lines starts with the name of the station they describe and is followed by a space-separated list of all of the station names that are directly connected to that station (there may be as many as 𝑁−1).
+
+The final line identifies a starting station and a destination station. The destination station is guaranteed to be different than the starting station.
+
+Each station name is a string of up to 20 characters using only letters a–z and A–Z. It is guaranteed that there is at most one simple route (without revisiting stations) from the starting station to the destination station.
+
+
+
+    (b)  Use your insight from (b) to implement a solution using your preferred language and submit your implementation via Kattis.
+
+
+
+
+
+
+
+
+

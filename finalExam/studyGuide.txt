@@ -1,0 +1,340 @@
+Quiz1. 
+
+Suppose you append a constant number of values to a sorted integer array of size n. What would be the running time of insertionSort on such limited type of input?
+
+
+Which of the following values for c and n_0 can be used to prove that 3n+20 = O(n)? Pick ALL correct answers.
+
+
+
+Suppose you repeatedly divide (using integer division) an integer n by 2. For example, if n is 120, then this process will generate values 60, 30, 15, 7, etc. How many divisions, in terms of n, will it take to get down to 1?
+
+
+
+What is the tight bound on the asymptotic running time, in terms of the number of states n and the number of representatives R, of the ApportionCongress algorithm described on page 9 of your textbook if the priority queue is implemented efficiently with a heap data structure?
+
+
+
+
+Consider this recursive implementation of Horner's method for polynomial evaluation:
+def recHorner(a, i, n, z):
+    if i > n:
+        return 0
+    return a[i] + z * recHorner(a, i+1, n, z)
+Which one of the following is the correct way to call this function on a polynomial of degree n whose coefficients are stored in array a and a value z:
+
+
+
+
+
+
+quiz2. 
+
+
+Match each recurrence relation on the right to a solution on the left.
+
+__4__	
+O(n)
+__3__	
+O(nlogn)
+__2__	
+O(nlog23)
+__1__	
+O(n2)
+1.	
+T(n) = 4T(n/2) + O(n)
+
+2.	
+T(n) = 3T(n/2) + O(n)
+
+3.	
+T(n) = 2T(n/2) + O(n)
+
+4.	
+T(n) = T(n/2) + O(n)
+
+
+Which of the following algorithms covered in lecture 2 have a worst case running time of O(logn)? Choose all that apply.
+
+Question options:
+
+PingalaPower*
+
+
+Binary Search*
+
+
+QuickSort
+
+
+FastMultiply
+
+
+MergeSort
+
+
+
+Not including the memory space necessary to hold the input array A, how much extra memory space is used by MergeSort and by QuickSort? Choose all that apply.
+
+
+
+
+Which of the following insights is NOT used in the development of the divide-and-conquer algorithm dicussed in the week 2 lecture?
+
+	
+Every set of n points has the property that when sorted by y-coordinate, points that are close to each other in the ordering are also close to each other on the plane.
+
+The initial call to multiply x=1,234,567 and y=9,876,543 using function FastMultiply on page 41 of your textbook will make three recursive calls to FastMultiply. What three pairs of values will the three recursive calls be multiplying?
+
+
+
+
+
+
+
+
+
+
+123 and 987, 4567 and 6543, -4444 and -5556
+
+
+
+
+
+
+
+
+
+quiz3. 
+
+Execute by hand the PlaceQueens algorithm with n=5, i.e. on a 5x5 chessboard until you reach a valid solution. What is the column of the queen in the last row?
+
+
+Figure 2.5 on page 75 of your textbook shows levels 0, 1, and 2 of the fake-sugar packer game tree. No two states in these levels are the same. What is the shallowest level at which some states will appear several times?
+
+
+The Subset Sum algorithm on lecture slide 64 will output all valid solutions when executed on problem instance S = [4, 7, 6, 3, 1] and T = 10. Which valid solution is found first? Second? Third?
+
+__1__	
+Third
+
+__3__	
+First
+
+__2__	
+Second
+
+1.	
+{4,6}
+
+2.	
+{7,3}
+
+3.	
+{6,3,1}
+
+
+Suppose you run the Subset Sum algorithm on lecture slide 64 on problem instance S = [4, 7, 6, 3, 1] and T = 10. Which of the following partial solutions will be pruned because of the first pruning rule, i.e. the one described on lecture slide 67?
+
+
+
+Which of the following are correct statements about the prof's solution to the Kattis Class Picture problem?
+
+
+-The re-sorting of the set remaining in every recursive call of function solve is critical to ensure that the output is accepted by Kattis.
+-Regardless of what pairs of people don't like each other, the program will never output a lineup in which the names are sorted in reverse lexicographic order (i.e., in reverse dictionary order).
+
+-Excluding the recursive call, the running time of the body of the for loop in function solve is O(1). You may assume that the Python set class methods and operators used in the body of the for loop run in O(1) time.
+
+-If input m is 0 then the lineup that is output is lexicographically sorted (i.e., sorted in dictionary order).
+
+
+
+
+
+
+
+quiz4. 
+
+
+
+quiz5. 
+
+
+
+
+quiz6. 
+
+
+
+quiz7. 
+
+
+
+quiz8. 
+
+
+
+quiz9. 
+
+
+
+Midterm. 
+1. 
+Suppose you run InsertionSort on integer array
+
+A = [7,2,5,3,6,1,9,4]
+
+After the first iteration of the for loop, the array is modified to
+
+A = [2,7,5,3,6,1,9,4]
+
+and after the second iteration of the for loop, it is modified to
+
+A = [2,5,7,3,6,1,9,4].
+
+What will the array look like after the third iteration?
+
+
+
+
+
+
+2. 
+
+Suppose we have a O(n) time algorithm that finds the median of an unsorted array. Now consider an implementation of the QuickSort algorithm where we first find the median using the above algorithm and then use the median as the pivot.
+ 
+What will be the worst case time complexity of this modified QuickSort?
+
+
+
+
+
+
+3. 
+
+
+Match each recursive function to the recurrence relation describing its running time.
+
+_3__
+
+f(n):
+  if n = 1:
+    return 1
+  for i = 1 to n:
+    print(i)
+  return f(n/2) + f(n/2)
+
+__4__	
+f(n):
+  if n = 1:
+    return 1
+  for i = 1 to n:
+    print(i)
+  return 1 + f(n/2)
+
+__1__	
+f(n):
+  if n = 1:
+    return 1
+  return 1 + f(n/2)
+
+__2__	
+f(n):
+  if n = 1:
+    return 1
+  return f(n/2) + f(n/2)
+
+
+1.	
+T(n) = T(n/2) + 1
+
+2.	
+T(n) = 2T(n/2) + 1
+
+3.	
+T(n) = 2T(n/2) + n
+
+4.	
+T(n) = T(n/2) + n
+
+
+
+4. 
+
+Let A[1 ..m] and B[1 .. n] be two arbitrary arrays (i.e., sequences) of characters. A CSS of A and B is defined to be another sequence that contains both A and B as subsequences. For example, if
+
+A = "bcfce" and B = "beccfe"
+
+then "bceccfce" is a CSS of A and B because A is a subsequence of it and B is a subsequence of it. Note that "beccfce" is also a CSS of A and B and that it is shorter.
+
+Let SCSS(A, B) be a shortest CSS of A and B and let LSCSS(A, B) be the length of the shortest CSS of A and B.
+
+Write a recursive solution for LSCSS(A,B). You solution must include two base cases that handle the situations when A is empty (i.e. m = 0) or B is empty (n = 0). Your solution must use the following insights:
+
+if A[m] = B[n] then SCSS(A[1..n], B[1..m]) is SCSS(A[1..m-1], B[1..n-1]) followed by character A[m] (= B[n])
+if A[m] != B[n] then SCSS(A[1..n], B[1..m]) is the shorter of SCSS(A[1..m-1], B[1..n]) followed by character A[m] or SCSS(A[1..m], B[1..n-1]) followed by character B[n]
+
+
+
+
+5. 
+
+Suppose we are given an array A[1..n] with the special property that A[1] ≥ A[2] and A[n − 1] ≤ A[n]. We say that an element A[x] is a local minimum if it is less than or equal to both its neighbors, or more formally, if A[x − 1] ≥ A[x] and A[x] ≤ A[x + 1]. For example, there are six local minima in the following array:
+
+9 7 7 2 1 3 7 5 4 7 3 3 4 8 6 9
+
+We can obviously find a local minimum in O(n) time by scanning through the array. Describe and analyze an algorithm that finds a local minimum in O(log n) time. [Hint: With the given boundary conditions, the array must have at least one local minimum. Why?]
+
+
+
+
+6. 
+Which of the following are longest increasing subsequences of sequence
+
+2 6 1 4 2 4 2 9 5 3 5 7 8 3
+
+? If more than one is a longest increasing subsequence, you must choose all of them.
+
+
+
+7. 
+The below Subset Sum algorithm (also shown on slide 64 of lecture 3) will output all valid solutions when executed on a problem instance.
+
+SubsetSum(S[1..n], T, X[1..n], r)
+  if r == n+1 then
+  output X
+  return
+X[r] = 0
+if Feasible(S, T, X, r) then
+  SubsetSum(S, T, X, r+1)
+X[r] = 1
+if Feasible(S, T, X, r) then
+  SubsetSum(S, T, X, r+1)
+
+Suppose the problem instance is given by S = [4, 7, 6, 3, 1] and T = 10. Which valid solution is found first? Second? Third?
+
+__2__	
+Second
+
+__1__	
+Third
+
+__3__	
+First
+
+
+1.	
+{4,6}
+
+2.	
+{7,3}
+
+3.	
+{6,3,1}
+
+
+
+8. You are given an instance of the subset set problem, with S = {3,1,6,4,2,9} and target T = 12. You are using a 0/1 array X of size 6 to represent a subset of S. Which of the following values for X represent solutions to the subset set problem?
+
+
